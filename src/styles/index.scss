@@ -1,0 +1,25 @@
+@import '~react-image-gallery/styles/scss/image-gallery.scss';
+
+body {
+  min-width: 1600px;
+  background-color: #f0f2f5;
+  height: 100%;
+  min-height: 100%;
+}
+
+#root,
+.ant-layout {
+  height: 100%;
+}
+
+.ant-layout-has-sider {
+  height: unset;
+}
+
+.ant-form-item {
+  margin-bottom: 15px !important;
+}
+
+.ant-list-item-meta-title {
+  margin-bottom: 0px !important;
+}

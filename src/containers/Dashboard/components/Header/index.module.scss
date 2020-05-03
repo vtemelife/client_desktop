@@ -1,0 +1,32 @@
+.Header {
+  background-color: #343a40 !important;
+}
+
+.Menu {
+  background-color: #343a40 !important;
+
+  a,
+  span {
+    color: white !important;
+  }
+
+  padding-left: 150px !important;
+}
+
+.Brand {
+  img {
+    width: 31px;
+    height: 31px;
+    margin-top: -10px;
+  }
+  span {
+    padding-left: 5px;
+    color: white;
+    font-size: 20px;
+  }
+  float: left;
+}
+
+.RightMenu {
+  float: right;
+}

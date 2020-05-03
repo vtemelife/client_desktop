@@ -1,0 +1,28 @@
+.SubContent {
+  padding: 10px !important;
+  background-color: white !important;
+}
+
+.RightSideBar {
+  padding: 10px !important;
+  min-width: 500px !important;
+  background-color: white !important;
+  border-left: 1px solid #f0f0f0;
+}
+
+.Events {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Event {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 10px !important;
+  span {
+    font-size: 10px !important;
+  }
+}
