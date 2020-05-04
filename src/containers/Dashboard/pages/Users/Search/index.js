@@ -73,9 +73,9 @@ const Search = () => {
         ></PageHeader>
 
         <AntdList
-          className="demo-loadmore-list"
           loading={false}
           itemLayout="horizontal"
+          size="large"
           pagination={{
             onChange: (page) => {
               console.log(page);
@@ -96,7 +96,7 @@ const Search = () => {
             >
               <Skeleton avatar title={false} loading={item.loading} active>
                 <AntdList.Item.Meta
-                  avatar={<Avatar size={200} icon={<UserOutlined />} />}
+                  avatar={<Avatar size={150} icon={<UserOutlined />} />}
                   title={
                     <a href="https://ant.design">
                       <h2>{item.title}</h2>

@@ -38,13 +38,13 @@ const Folders = () => {
     <Spin spinning={false}>
       <Layout>
         <Helmet>
-          <title>{_('Folders')}</title>
-          <meta name="description" content={_('Folders')} />
+          <title>{_('Media Folders')}</title>
+          <meta name="description" content={_('Media Folders')} />
         </Helmet>
         <Content className={dashboardStyles.SubContent}>
           <PageHeader
-            title={_('Folders')}
-            subTitle={_('Folders')}
+            title={_('Media Folders')}
+            subTitle={_('Collect and organize your media in folders')}
             extra={[
               <Link to={CLIENT_URLS.DASHBOARD.BLOGS.POST_CREATE.buildPath()}>
                 <Button key="ask" type="primary">
@@ -55,6 +55,7 @@ const Folders = () => {
             ]}
           />
           <List
+            size="large"
             grid={{
               gutter: 16,
               xs: 4,

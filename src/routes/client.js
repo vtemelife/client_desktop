@@ -66,6 +66,14 @@ const CLIENT_URLS = {
       POST_DETAIL: url('/blogs/detail/:postSlug/'),
       POST_UPDATE: url('/blogs/update/:postSlug/'),
     },
+    THEMAPEDIA: {
+      INDEX: url('/themapedia/'),
+      LIST: url('/themapedia/'),
+      USER: url('/themapedia/user/:userSlug/'),
+      POST_CREATE: url('/themapedia/create/'),
+      POST_DETAIL: url('/themapedia/detail/:postSlug/'),
+      POST_UPDATE: url('/themapedia/update/:postSlug/'),
+    },
     CLUBS: {
       INDEX: url('/clubs/'),
     },

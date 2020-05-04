@@ -1,11 +1,21 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { Tag, Layout, PageHeader, Button, List as AntdList } from 'antd';
+import {
+  Form,
+  Card,
+  Drawer,
+  Tag,
+  Layout,
+  PageHeader,
+  Button,
+  List as AntdList,
+} from 'antd';
 import {
   QuestionOutlined,
   MessageOutlined,
   LikeOutlined,
+  FilterFilled,
 } from '@ant-design/icons';
 
 import { _ } from 'utils/trans';
@@ -15,7 +25,6 @@ import IconText from 'containers/Dashboard/components/IconText';
 import Comments from 'containers/Dashboard/components/Comments';
 
 import dashboardStyles from 'containers/Dashboard/index.module.scss';
-import styles from './index.module.scss';
 
 const listData = [];
 for (let i = 0; i < 23; i++) {
@@ -33,7 +42,39 @@ const tagsData = ['BDSM', 'SWING', 'LGBT', 'POLIAMORIA', 'VIRT', 'SEX'];
 
 const { Sider, Content } = Layout;
 
+const hashData = [
+  '#Hash 1',
+  '#Hash 1',
+  '#Hash 1',
+  '#Hash 1',
+  '#Hash 1',
+  '#Hash 1',
+  '#Hash 1',
+  '#Hash 1',
+  '#Hash 1',
+  '#Hash 1',
+  '#Hash 1',
+  '#Hash 1',
+  '#Hash 1',
+  '#Hash 1',
+  '#Hash 1',
+  '#Hash 1',
+  '#Hash 1',
+  '#Hash 1',
+  '#Hash 1',
+  '#Hash 1',
+  '#Hash 1',
+  '#Hash 1',
+  '#Hash 1',
+  '#Hash 1',
+];
+
+function randomInt(min, max) {
+  return min + Math.floor((max - min) * Math.random());
+}
+
 const List = () => {
+  const [currentWhisper, changeCurrentWhisper] = useState();
   const [tags, changeTags] = useState([]);
   return (
     <Layout>
@@ -41,7 +82,7 @@ const List = () => {
         <title>{_('Whisper')}</title>
         <meta name="description" content={_('Whisper')} />
       </Helmet>
-      <Content className={styles.SubContent}>
+      <Content className={dashboardStyles.SubContent}>
         <PageHeader
           title={_('Whisper')}
           subTitle={_(
@@ -58,22 +99,6 @@ const List = () => {
             </Link>,
           ]}
         />
-        <div className={dashboardStyles.Tags}>
-          {tagsData.map((tag) => (
-            <CheckableTag
-              key={tag}
-              checked={tags.indexOf(tag) > -1}
-              onChange={(checked) => {
-                const newTags = checked
-                  ? [...tags, tag]
-                  : tags.filter((t) => t !== tag);
-                changeTags(newTags);
-              }}
-            >
-              {tag}
-            </CheckableTag>
-          ))}
-        </div>
         <AntdList
           itemLayout="vertical"
           size="large"
@@ -86,6 +111,7 @@ const List = () => {
           dataSource={listData}
           renderItem={(item) => (
             <AntdList.Item
+              onClick={() => changeCurrentWhisper(item)}
               key={item.title}
               actions={[
                 <IconText
@@ -106,36 +132,89 @@ const List = () => {
           )}
         />
       </Content>
-      <Sider className={styles.RightSideBar}>
-        <div className={dashboardStyles.StickyFilter}>
-          <AntdList
-            itemLayout="vertical"
-            size="small"
-            dataSource={[listData[0]]}
-            renderItem={(item) => (
-              <AntdList.Item
-                key={item.title}
-                actions={[
-                  <IconText
-                    icon={LikeOutlined}
-                    text="156"
-                    key="list-vertical-like-o"
-                  />,
-                  <IconText
-                    icon={MessageOutlined}
-                    text="2"
-                    key="list-vertical-message"
-                  />,
-                ]}
-              >
-                <AntdList.Item.Meta />
-                {item.content}
-              </AntdList.Item>
-            )}
-          />
-          <Comments defaultComments={[]} onSubmit={() => {}} height={400} />
-        </div>
+      <Sider className={dashboardStyles.RightSideBar}>
+        <Card
+          size="small"
+          title={
+            <>
+              <FilterFilled /> {_('Filters')}
+            </>
+          }
+          bordered={false}
+          className={dashboardStyles.StickyFilter}
+        >
+          <Form layout="vertical">
+            <Form.Item label={'Categories'} name="is_online">
+              {tagsData.map((tag) => (
+                <CheckableTag
+                  key={tag}
+                  checked={tags.indexOf(tag) > -1}
+                  onChange={(checked) => {
+                    const newTags = checked
+                      ? [...tags, tag]
+                      : tags.filter((t) => t !== tag);
+                    changeTags(newTags);
+                  }}
+                >
+                  {tag}
+                </CheckableTag>
+              ))}
+            </Form.Item>
+            <Form.Item label={'Hash Tags'} name="hash_tags">
+              {hashData.map((tag, index) => (
+                <Link
+                  style={{ fontSize: `${randomInt(8, 20, index)}px` }}
+                  key={tag}
+                  to={CLIENT_URLS.DASHBOARD.BLOGS.USER.buildPath({
+                    userSlug: tag,
+                  })}
+                >
+                  {tag}
+                </Link>
+              ))}
+            </Form.Item>
+          </Form>
+        </Card>
       </Sider>
+      <Drawer
+        width={600}
+        title={_('Events (21.10.2020)')}
+        placement="right"
+        closable={true}
+        onClose={() => changeCurrentWhisper()}
+        visible={!!currentWhisper}
+      >
+        {currentWhisper && (
+          <>
+            <AntdList
+              itemLayout="vertical"
+              size="small"
+              dataSource={[currentWhisper]}
+              renderItem={(item) => (
+                <AntdList.Item
+                  key={item.title}
+                  actions={[
+                    <IconText
+                      icon={LikeOutlined}
+                      text="156"
+                      key="list-vertical-like-o"
+                    />,
+                    <IconText
+                      icon={MessageOutlined}
+                      text="2"
+                      key="list-vertical-message"
+                    />,
+                  ]}
+                >
+                  <AntdList.Item.Meta />
+                  {item.content}
+                </AntdList.Item>
+              )}
+            />
+            <Comments defaultComments={[]} onSubmit={() => {}} height={400} />
+          </>
+        )}
+      </Drawer>
     </Layout>
   );
 };

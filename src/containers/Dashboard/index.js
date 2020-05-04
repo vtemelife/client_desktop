@@ -15,6 +15,7 @@ import Users from './pages/Users';
 import Chats from './pages/Chats';
 import Events from './pages/Events';
 import MediaGallery from './pages/MediaGallery';
+import Themapedia from './pages/Themapedia';
 import Blogs from './pages/Blogs';
 import Whisper from './pages/Whisper';
 
@@ -60,6 +61,10 @@ const Dashboard = () => (
             <Route
               path={CLIENT_URLS.DASHBOARD.BLOGS.INDEX.route}
               component={Blogs}
+            />
+            <Route
+              path={CLIENT_URLS.DASHBOARD.THEMAPEDIA.INDEX.route}
+              component={Themapedia}
             />
             <Route
               path={CLIENT_URLS.DASHBOARD.MEDIA.INDEX.route}

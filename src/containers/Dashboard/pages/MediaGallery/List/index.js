@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Layout, Spin, PageHeader, Button } from 'antd';
+import { Layout, Skeleton, PageHeader, Button } from 'antd';
 import ImageGallery from 'react-image-gallery';
 import { Link } from 'react-router-dom';
 import { UploadOutlined } from '@ant-design/icons';
@@ -33,45 +33,46 @@ const images = [
 const List = () => {
   const [loading, changeLoading] = useState(true);
   return (
-    <Spin spinning={loading}>
-      <Layout>
-        <Helmet>
-          <title>{_('Media Gallery')}</title>
-          <meta name="description" content={_('Media Gallery')} />
-        </Helmet>
-        <Content className={styles.SubContent}>
-          <PageHeader
-            title={_('Media Gallery')}
-            subTitle={_('Gallery')}
-            extra={[
-              <Link to={CLIENT_URLS.DASHBOARD.BLOGS.POST_CREATE.buildPath()}>
-                <Button key="ask" type="primary">
-                  <UploadOutlined />
-                  {_('Upload your media')}
-                </Button>
-              </Link>,
-            ]}
+    <Layout>
+      <Helmet>
+        <title>{_('Media Gallery')}</title>
+        <meta name="description" content={_('Media Gallery')} />
+      </Helmet>
+      <Content className={styles.SubContent}>
+        <PageHeader
+          title={_('Media Gallery')}
+          subTitle={_('Gallery')}
+          extra={[
+            <Link to={CLIENT_URLS.DASHBOARD.BLOGS.POST_CREATE.buildPath()}>
+              <Button key="ask" type="primary">
+                <UploadOutlined />
+                {_('Upload your media')}
+              </Button>
+            </Link>,
+          ]}
+        />
+        <Skeleton
+          title={false}
+          loading={loading}
+          active
+          className={styles.Skeleton}
+        />
+        <div style={loading ? { display: 'none' } : undefined}>
+          <ImageGallery
+            items={images}
+            showPlayButton={false}
+            // lazyLoad={true}
+            onImageLoad={() => {
+              changeLoading(false);
+            }}
           />
-          <div
-            className={styles.SubContent}
-            style={loading ? { display: 'none' } : { display: 'block' }}
-          >
-            <ImageGallery
-              items={images}
-              showPlayButton={false}
-              // lazyLoad={true}
-              onImageLoad={() => {
-                changeLoading(false);
-              }}
-            />
-          </div>
-        </Content>
+        </div>
+      </Content>
 
-        <Sider className={styles.RightSideBar}>
-          <Comments defaultComments={[]} onSubmit={() => {}} />
-        </Sider>
-      </Layout>
-    </Spin>
+      <Sider className={styles.RightSideBar}>
+        <Comments defaultComments={[]} onSubmit={() => {}} />
+      </Sider>
+    </Layout>
   );
 };
 

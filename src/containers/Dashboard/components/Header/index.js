@@ -13,6 +13,7 @@ import {
   EyeInvisibleOutlined,
   UsergroupAddOutlined,
   ControlFilled,
+  AuditOutlined,
 } from '@ant-design/icons';
 import { useMutate } from 'restful-react';
 
@@ -65,6 +66,12 @@ const Header = () => {
           <CoffeeOutlined />
           <NavLink to={CLIENT_URLS.DASHBOARD.BLOGS.INDEX.buildPath()}>
             {_('Blogs')}
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key={CLIENT_URLS.DASHBOARD.THEMAPEDIA.INDEX.route}>
+          <AuditOutlined />
+          <NavLink to={CLIENT_URLS.DASHBOARD.THEMAPEDIA.INDEX.buildPath()}>
+            {_('Themapedia')}
           </NavLink>
         </Menu.Item>
         <Menu.Item key={CLIENT_URLS.DASHBOARD.MEDIA.INDEX.route}>

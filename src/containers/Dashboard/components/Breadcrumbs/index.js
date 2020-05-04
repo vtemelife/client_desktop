@@ -43,7 +43,7 @@ const Breadcrumbs = () => (
               {_('Media Gallery')}
             </Link>
           </Breadcrumb.Item>
-          <Breadcrumb.Item>{_('Folders')}</Breadcrumb.Item>
+          <Breadcrumb.Item>{_('Media Folders')}</Breadcrumb.Item>
         </Breadcrumb>
       )}
     />

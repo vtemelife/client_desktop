@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import {
   Calendar,
@@ -11,14 +11,16 @@ import {
   Radio,
   Card,
   Form,
+  Drawer,
 } from 'antd';
 import { Link } from 'react-router-dom';
-import { PlusOutlined } from '@ant-design/icons';
+import { PlusOutlined, FilterFilled } from '@ant-design/icons';
 
 import { _ } from 'utils/trans';
 
 import CLIENT_URLS from 'routes/client';
 
+import dashboardStyles from 'containers/Dashboard/index.module.scss';
 import styles from './index.module.scss';
 
 const { Sider, Content } = Layout;
@@ -89,6 +91,7 @@ function monthCellRender(value) {
 }
 
 const EventsCalendar = () => {
+  const [currentEvents, changeCurrentEvents] = useState([]);
   function handleChange(value) {
     console.log(`selected ${value}`);
   }
@@ -98,7 +101,7 @@ const EventsCalendar = () => {
         <title>{_('Events')}</title>
         <meta name="description" content={_('Events')} />
       </Helmet>
-      <Content className={styles.SubContent}>
+      <Content className={dashboardStyles.SubContent}>
         <PageHeader
           title={_('Events')}
           subTitle={_('Discover the best events & parties')}
@@ -115,10 +118,31 @@ const EventsCalendar = () => {
           className={styles.Calendar}
           dateCellRender={dateCellRender}
           monthCellRender={monthCellRender}
+          onSelect={() =>
+            changeCurrentEvents([
+              { type: 'warning', content: 'This is warning event' },
+              {
+                type: 'success',
+                content: 'This is very long usual event。。....',
+              },
+              { type: 'error', content: 'This is error event 1.' },
+              { type: 'error', content: 'This is error event 2.' },
+              { type: 'error', content: 'This is error event 3.' },
+              { type: 'error', content: 'This is error event 4.' },
+            ])
+          }
         />
       </Content>
-      <Sider className={styles.RightSideBar}>
-        <Card size="small" title={_('Filters')} bordered={false}>
+      <Sider className={dashboardStyles.RightSideBar}>
+        <Card
+          size="small"
+          title={
+            <>
+              <FilterFilled /> {_('Filters')}
+            </>
+          }
+          bordered={false}
+        >
           <Form layout="horizontal">
             <Form.Item label={'Region'} name="is_real">
               <Select
@@ -164,54 +188,61 @@ const EventsCalendar = () => {
             </Form.Item>
           </Form>
         </Card>
-        <Card size="small" title={_('Events (21.10.2020)')} bordered={false}>
-          <AntdList
-            itemLayout="vertical"
-            size="small"
-            pagination={{
-              onChange: (page) => {
-                console.log(page);
-              },
-              pageSize: 3,
-            }}
-            dataSource={[
-              { type: 'warning', content: 'This is warning event.' },
-              { type: 'success', content: 'This is usual event.' },
-            ]}
-            renderItem={(item) => (
-              <AntdList.Item
-                key={item.title}
-                actions={[
-                  <Form>
-                    <Form.Item label={'Participation'} name="participation">
-                      <Radio.Group defaultValue="a" size="small" title="jjjj">
-                        <Radio.Button value="a">{_('Yes')}</Radio.Button>
-                        <Radio.Button value="b" checked>
-                          {_('No')}
-                        </Radio.Button>
-                        <Radio.Button value="c">{_('May be')}</Radio.Button>
-                      </Radio.Group>
-                    </Form.Item>
-                  </Form>,
-                ]}
-                extra={
-                  <img
-                    width={100}
-                    height={100}
-                    alt="logo"
-                    src="https://cs5-3.4pda.to/5290239.png"
-                  />
-                }
-              >
-                <AntdList.Item.Meta
-                  title={<a href={item.href}>{item.content}</a>}
-                  description={item.content}
-                />
-              </AntdList.Item>
-            )}
-          />
-        </Card>
       </Sider>
+      <Drawer
+        width={600}
+        title={_('Events (21.10.2020)')}
+        placement="right"
+        closable={true}
+        onClose={() => changeCurrentEvents([])}
+        visible={currentEvents.length > 0}
+      >
+        <AntdList
+          itemLayout="vertical"
+          size="small"
+          pagination={{
+            onChange: (page) => {
+              console.log(page);
+            },
+            pageSize: 3,
+          }}
+          dataSource={[
+            { type: 'warning', content: 'This is warning event.' },
+            { type: 'success', content: 'This is usual event.' },
+          ]}
+          renderItem={(item) => (
+            <AntdList.Item
+              key={item.title}
+              actions={[
+                <Form>
+                  <Form.Item label={'Participation'} name="participation">
+                    <Radio.Group defaultValue="a" size="small" title="jjjj">
+                      <Radio.Button value="a">{_('Yes')}</Radio.Button>
+                      <Radio.Button value="b" checked>
+                        {_('No')}
+                      </Radio.Button>
+                      <Radio.Button value="c">{_('May be')}</Radio.Button>
+                    </Radio.Group>
+                  </Form.Item>
+                </Form>,
+              ]}
+              extra={
+                <img
+                  width={100}
+                  height={100}
+                  alt="logo"
+                  src="https://cs5-3.4pda.to/5290239.png"
+                />
+              }
+            >
+              <AntdList.Item.Meta
+                title={<a href={item.href}>{item.content}</a>}
+                description={item.content}
+              />
+            </AntdList.Item>
+          )}
+        />
+      </Drawer>
     </Layout>
   );
 };
