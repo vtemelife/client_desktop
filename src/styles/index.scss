@@ -7,6 +7,10 @@ body {
   min-height: 100%;
 }
 
+body.auth-body {
+  background-color: white;
+}
+
 #root,
 .ant-layout {
   height: 100%;
