@@ -42,10 +42,10 @@ const NavMenu = () => {
           {_('My Profile')}
         </NavLink>
       </Menu.Item>
-      <Menu.Item key={CLIENT_URLS.DASHBOARD.NEWS.INDEX.route}>
+      <Menu.Item key={CLIENT_URLS.DASHBOARD.ACTIONS.INDEX.route}>
         <ProfileOutlined />
-        <NavLink to={CLIENT_URLS.DASHBOARD.NEWS.INDEX.buildPath()}>
-          {_('News')} <Badge count={25} />
+        <NavLink to={CLIENT_URLS.DASHBOARD.ACTIONS.INDEX.buildPath()}>
+          {_('Actions')} <Badge count={25} />
         </NavLink>
       </Menu.Item>
       <Menu.Item key={CLIENT_URLS.DASHBOARD.CHATS.INDEX.route}>

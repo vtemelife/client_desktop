@@ -1,42 +1,53 @@
-$primary-color: #141414;
 $link-color: #55a79a;
-
-$menu-item-active-bg: $primary-color;
-$menu-highlight-color: $link-color;
 
 $background-body-color: #141414;
 $background-body-auth-color: #141414;
 $background-color: #141414;
 $border-color: #303030;
 $header-color: #141414;
-$span-color: white;
 
 body {
-  background: $background-body-color;
+  background-color: $background-body-color;
 }
 
 body.auth-body {
-  background: $background-body-auth-color;
+  background-color: $background-body-auth-color;
+}
+
+.auth-brand-logo {
+  background-size: cover;
+  background-image: url('../img/logoWhite.png');
+}
+
+.auth-brand-title {
+  color: white;
 }
 
 .ant-layout-content,
 .ant-layout-sider {
-  background: $background-color !important;
+  background-color: $background-color !important;
   .ant-layout-sider {
-    border-left: 1px solid $border-color;
+    border-left: 1px solid $border-color !important;
   }
 }
 
 .ant-layout-header {
-  background: $header-color !important;
-  color: $span-color;
-  .ant-menu {
+  background-color: $header-color !important;
+  color: white !important;
+}
+.ant-menu-dark {
+  background-color: $header-color !important;
+  .ant-menu-sub {
     background-color: $header-color !important;
-    color: $span-color;
-    span,
-    a,
-    a:hover {
-      color: $span-color;
-    }
   }
+}
+
+.image-gallery-svg {
+  color: $link-color !important;
+}
+
+.image-gallery-thumbnail.active,
+.image-gallery-thumbnail:hover,
+.image-gallery-thumbnail:focus {
+  border-color: $link-color !important;
 }

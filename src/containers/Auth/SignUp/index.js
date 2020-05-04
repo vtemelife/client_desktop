@@ -12,8 +12,6 @@ import CLIENT_URLS from 'routes/client';
 import SERVER_URLS from 'routes/server';
 
 import styles from './index.module.scss';
-import imgLogoBlack from 'styles/img/logoBlack.png';
-import imgAgeIcon from 'styles/img/18Plus.svg';
 
 const SignUp = () => {
   const recaptchaRef = useRef();
@@ -61,14 +59,12 @@ const SignUp = () => {
         <meta name="description" content={_('Sign Up')} />
       </Helmet>
       <Row justify="center">
-        <img className={styles.logo} src={imgLogoBlack} alt={_('V')} />
-        <span className={styles.brand}>{_('Teme')}</span>
+        <div className="auth-brand-logo" />
+        <span className="auth-brand-title">{_('Teme')}</span>
       </Row>
       <Row justify="center">
-        <h1>
-          {_('Sign Up')}{' '}
-          <img className={styles.ageIcon} src={imgAgeIcon} alt={_('18+')} />
-        </h1>
+        <h1>{_('Sign Up')}</h1>
+        <div className="auth-age" />
       </Row>
       <Row justify="center">
         <span>{_('Social network for adults')}</span>

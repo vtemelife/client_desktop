@@ -45,6 +45,7 @@ const Header = () => {
         <span>{_('Teme')}</span>
       </div>
       <Menu
+        theme="dark"
         mode="horizontal"
         className={styles.Menu}
         activeKey={location.pathname}
@@ -62,9 +63,9 @@ const Header = () => {
             {_('Whisper')}
           </NavLink>
         </Menu.Item>
-        <Menu.Item key={CLIENT_URLS.DASHBOARD.BLOGS.INDEX.route}>
+        <Menu.Item key={CLIENT_URLS.DASHBOARD.BLOGS.LIST.route}>
           <CoffeeOutlined />
-          <NavLink to={CLIENT_URLS.DASHBOARD.BLOGS.INDEX.buildPath()}>
+          <NavLink to={CLIENT_URLS.DASHBOARD.BLOGS.LIST.buildPath()}>
             {_('Blogs')}
           </NavLink>
         </Menu.Item>
@@ -74,9 +75,9 @@ const Header = () => {
             {_('Themapedia')}
           </NavLink>
         </Menu.Item>
-        <Menu.Item key={CLIENT_URLS.DASHBOARD.MEDIA.INDEX.route}>
+        <Menu.Item key={CLIENT_URLS.DASHBOARD.MEDIA.LIST.route}>
           <InstagramOutlined />
-          <NavLink to={CLIENT_URLS.DASHBOARD.MEDIA.INDEX.buildPath()}>
+          <NavLink to={CLIENT_URLS.DASHBOARD.MEDIA.LIST.buildPath()}>
             {_('Media gallery')}
           </NavLink>
         </Menu.Item>

@@ -43,8 +43,8 @@ const ResetPassword = () => {
         <meta name="description" content={_('Reset your password')} />
       </Helmet>
       <Row justify="center">
-        <img className={styles.logo} src={imgLogoBlack} alt={_('V')} />
-        <span className={styles.brand}>{_('Teme')}</span>
+        <img className="auth-brand-logo" src={imgLogoBlack} alt={_('V')} />
+        <span className="auth-brand-title">{_('Teme')}</span>
       </Row>
       <Row justify="center">
         <h1 className={styles.title}>{_('Reset your password')}</h1>

@@ -11,6 +11,7 @@ import NavMenu from './components/NavMenu';
 import Breadcrumbs from './components/Breadcrumbs';
 import Activity from './pages/Activity';
 import Profile from './pages/Profile';
+import Actions from './pages/Actions';
 import Users from './pages/Users';
 import Chats from './pages/Chats';
 import Events from './pages/Events';
@@ -39,8 +40,8 @@ const Dashboard = () => (
               component={Profile}
             />
             <Route
-              path={CLIENT_URLS.DASHBOARD.NEWS.INDEX.route}
-              component={Activity}
+              path={CLIENT_URLS.DASHBOARD.ACTIONS.INDEX.route}
+              component={Actions}
             />
             <Route
               path={CLIENT_URLS.DASHBOARD.CHATS.INDEX.route}

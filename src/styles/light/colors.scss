@@ -1,42 +1,53 @@
-$primary-color: #343a40;
 $link-color: #55a79a;
 
-$menu-item-active-bg: $primary-color;
-$menu-highlight-color: $link-color;
-
 $background-body-color: #f0f0f0;
-$background-body-auth-color: white;
-$background-color: white;
-$border-color: $background-body-color;
+$background-body-auth-color: #ffffff;
+$background-color: #ffffff;
+$border-color: #f0f0f0;
 $header-color: #343a40;
-$span-color: white;
 
 body {
-  background: $background-body-color;
+  background-color: $background-body-color;
 }
 
 body.auth-body {
-  background: $background-body-auth-color;
+  background-color: $background-body-auth-color;
+}
+
+.auth-brand-logo {
+  background-size: cover;
+  background-image: url('../img/logoBlack.png');
+}
+
+.auth-brand-title {
+  color: black;
 }
 
 .ant-layout-content,
 .ant-layout-sider {
-  background: $background-color !important;
+  background-color: $background-color !important;
   .ant-layout-sider {
-    border-left: 1px solid $border-color;
+    border-left: 1px solid $border-color !important;
   }
 }
 
 .ant-layout-header {
-  background: $header-color !important;
-  color: $span-color;
-  .ant-menu {
+  background-color: $header-color !important;
+  color: $border-color !important;
+}
+.ant-menu-dark {
+  background-color: $header-color !important;
+  .ant-menu-sub {
     background-color: $header-color !important;
-    color: $span-color;
-    span,
-    a,
-    a:hover {
-      color: $span-color;
-    }
   }
+}
+
+.image-gallery-svg {
+  color: $link-color !important;
+}
+
+.image-gallery-thumbnail.active,
+.image-gallery-thumbnail:hover,
+.image-gallery-thumbnail:focus {
+  border-color: $link-color !important;
 }

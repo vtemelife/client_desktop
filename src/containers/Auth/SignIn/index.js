@@ -20,8 +20,6 @@ import SERVER_URLS from 'routes/server';
 import SelectLocale from 'components/SelectLocale';
 
 import styles from './index.module.scss';
-import imgLogoBlack from 'styles/img/logoBlack.png';
-import imgAgeIcon from 'styles/img/18Plus.svg';
 
 const SignIn = () => {
   const history = useHistory();
@@ -64,14 +62,12 @@ const SignIn = () => {
       </Helmet>
       <SelectLocale className={styles.selectLocale} />
       <Row justify="center">
-        <img className={styles.logo} src={imgLogoBlack} alt={_('V')} />
-        <span className={styles.brand}>{_('Teme')}</span>
+        <div className="auth-brand-logo" />
+        <span className="auth-brand-title">{_('Teme')}</span>
       </Row>
       <Row justify="center">
-        <h1>
-          {_('Sign In')}{' '}
-          <img className={styles.ageIcon} src={imgAgeIcon} alt={_('18+')} />
-        </h1>
+        <h1>{_('Sign In')}</h1>
+        <div className="auth-age" />
       </Row>
       <Row justify="center">
         <span>{_('Social network for adults')}</span>

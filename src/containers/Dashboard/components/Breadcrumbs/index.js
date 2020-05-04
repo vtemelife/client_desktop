@@ -16,7 +16,7 @@ const Breadcrumbs = () => (
       render={() => (
         <Breadcrumb className={styles.Breadcrumb}>
           <Breadcrumb.Item>
-            <Link to={CLIENT_URLS.DASHBOARD.BLOGS.INDEX.buildPath()}>
+            <Link to={CLIENT_URLS.DASHBOARD.BLOGS.LIST.buildPath()}>
               {_('Blogs')}
             </Link>
           </Breadcrumb.Item>

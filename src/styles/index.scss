@@ -6,6 +6,26 @@ body {
   min-height: 100%;
 }
 
+.auth-brand-logo {
+  width: 100px;
+  height: 100px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.auth-brand-title {
+  margin-top: 70px;
+  font-size: 50px;
+}
+
+.auth-age {
+  margin-left: 10px;
+  height: 40px;
+  width: 40px;
+  background-size: cover;
+  background-image: url('img/18Plus.svg');
+}
+
 #root,
 .ant-layout {
   height: 100%;
@@ -24,5 +44,5 @@ body {
 }
 
 .ant-drawer-body {
-  padding: 0px !important;
+  padding: 5px !important;
 }

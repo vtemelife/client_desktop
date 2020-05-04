@@ -16,8 +16,8 @@ const CLIENT_URLS = {
     PROFILE: {
       INDEX: url('/profile/:userSlug/'),
     },
-    NEWS: {
-      INDEX: url('/news/'),
+    ACTIONS: {
+      INDEX: url('/actions/'),
     },
     CHATS: {
       INDEX: url('/chats/'),
@@ -46,7 +46,7 @@ const CLIENT_URLS = {
     },
     MEDIA: {
       INDEX: url('/media/'),
-      LIST: url('/media/'),
+      LIST: url('/media/all/'),
       CREATE: url('/media/create/'),
       DETAIL: url('/media/detail/:mediaSlug/'),
       FOLDERS: url('/media/folders/'),
@@ -60,7 +60,7 @@ const CLIENT_URLS = {
     },
     BLOGS: {
       INDEX: url('/blogs/'),
-      LIST: url('/blogs/'),
+      LIST: url('/blogs/all/'),
       USER: url('/blogs/user/:userSlug/'),
       POST_CREATE: url('/blogs/create/'),
       POST_DETAIL: url('/blogs/detail/:postSlug/'),
