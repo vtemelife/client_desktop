@@ -13,7 +13,12 @@ import { getCookie } from 'utils/cookie';
 import * as serviceWorker from './serviceWorker';
 
 import enUS from 'antd/es/locale/en_US';
-import 'styles/index.less';
+
+import 'styles/dark/colors.less';
+import 'styles/dark/colors.scss';
+// import 'styles/light/colors.less';
+// import 'styles/light/colors.scss';
+
 import 'styles/index.scss';
 
 const history = createBrowserHistory();

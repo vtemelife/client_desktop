@@ -1,0 +1,42 @@
+$primary-color: #343a40;
+$link-color: #55a79a;
+
+$menu-item-active-bg: $primary-color;
+$menu-highlight-color: $link-color;
+
+$background-body-color: #f0f0f0;
+$background-body-auth-color: white;
+$background-color: white;
+$border-color: $background-body-color;
+$header-color: #343a40;
+$span-color: white;
+
+body {
+  background: $background-body-color;
+}
+
+body.auth-body {
+  background: $background-body-auth-color;
+}
+
+.ant-layout-content,
+.ant-layout-sider {
+  background: $background-color !important;
+  .ant-layout-sider {
+    border-left: 1px solid $border-color;
+  }
+}
+
+.ant-layout-header {
+  background: $header-color !important;
+  color: $span-color;
+  .ant-menu {
+    background-color: $header-color !important;
+    color: $span-color;
+    span,
+    a,
+    a:hover {
+      color: $span-color;
+    }
+  }
+}
