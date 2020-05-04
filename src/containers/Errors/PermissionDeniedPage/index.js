@@ -1,28 +1,37 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Layout, Row } from 'antd';
+import { Button, Result } from 'antd';
+import { useHistory } from 'react-router';
 
 import { _ } from 'utils/trans';
-import styles from './index.module.scss';
+import CLIENT_URLS from 'routes/client';
 
-const { Content } = Layout;
-
-const PermissionDeniedPage = () => (
-  <Layout>
-    <Helmet>
-      <title>{_('403')}</title>
-      <meta name="description" content={_('403')} />
-    </Helmet>
-    <Content>
-      <Layout>
-        <Content>
-          <Row justify="center">
-            <h1 className={styles.title}>{_('Permission Denied')}</h1>
-          </Row>
-        </Content>
-      </Layout>
-    </Content>
-  </Layout>
-);
+const PermissionDeniedPage = () => {
+  const history = useHistory();
+  return (
+    <>
+      <Helmet>
+        <title>{_('404')}</title>
+        <meta name="description" content={_('404')} />
+      </Helmet>
+      <Result
+        status="403"
+        title="403"
+        subTitle={_('Sorry, you are not authorized to access this page.')}
+        extra={
+          <Button
+            type="primary"
+            onClick={() =>
+              history.push(CLIENT_URLS.DASHBOARD.INDEX.buildPath())
+            }
+          >
+            {_('Back Home')}
+          </Button>
+        }
+      />
+      >
+    </>
+  );
+};
 
 export default PermissionDeniedPage;

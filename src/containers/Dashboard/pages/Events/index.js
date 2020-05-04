@@ -5,7 +5,7 @@ import CLIENT_URLS from 'routes/client';
 
 import NotFoundRoute from 'containers/Errors/NotFoundRoute';
 
-import List from './List';
+import EventsCalendar from './EventsCalendar';
 
 const Events = () => {
   return (
@@ -13,7 +13,7 @@ const Events = () => {
       <Route
         exact
         path={CLIENT_URLS.DASHBOARD.EVENTS.CALENDAR.route}
-        component={List}
+        component={EventsCalendar}
       />
       <NotFoundRoute />
     </Switch>

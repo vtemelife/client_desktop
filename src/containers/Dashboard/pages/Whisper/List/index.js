@@ -29,16 +29,7 @@ for (let i = 0; i < 23; i++) {
 }
 
 const { CheckableTag } = Tag;
-const tagsData = [
-  'Movies',
-  'Books',
-  'Music',
-  'Sports',
-  'Movies',
-  'Books',
-  'Music',
-  'Sports',
-];
+const tagsData = ['BDSM', 'SWING', 'LGBT', 'POLIAMORIA', 'VIRT', 'SEX'];
 
 const { Sider, Content } = Layout;
 
@@ -90,7 +81,7 @@ const List = () => {
             onChange: (page) => {
               console.log(page);
             },
-            pageSize: 3,
+            pageSize: 10,
           }}
           dataSource={listData}
           renderItem={(item) => (
@@ -116,32 +107,34 @@ const List = () => {
         />
       </Content>
       <Sider className={styles.RightSideBar}>
-        <AntdList
-          itemLayout="vertical"
-          size="small"
-          dataSource={[listData[0]]}
-          renderItem={(item) => (
-            <AntdList.Item
-              key={item.title}
-              actions={[
-                <IconText
-                  icon={LikeOutlined}
-                  text="156"
-                  key="list-vertical-like-o"
-                />,
-                <IconText
-                  icon={MessageOutlined}
-                  text="2"
-                  key="list-vertical-message"
-                />,
-              ]}
-            >
-              <AntdList.Item.Meta />
-              {item.content}
-            </AntdList.Item>
-          )}
-        />
-        <Comments defaultComments={[]} onSubmit={() => {}} height={400} />
+        <div className={dashboardStyles.StickyFilter}>
+          <AntdList
+            itemLayout="vertical"
+            size="small"
+            dataSource={[listData[0]]}
+            renderItem={(item) => (
+              <AntdList.Item
+                key={item.title}
+                actions={[
+                  <IconText
+                    icon={LikeOutlined}
+                    text="156"
+                    key="list-vertical-like-o"
+                  />,
+                  <IconText
+                    icon={MessageOutlined}
+                    text="2"
+                    key="list-vertical-message"
+                  />,
+                ]}
+              >
+                <AntdList.Item.Meta />
+                {item.content}
+              </AntdList.Item>
+            )}
+          />
+          <Comments defaultComments={[]} onSubmit={() => {}} height={400} />
+        </div>
       </Sider>
     </Layout>
   );

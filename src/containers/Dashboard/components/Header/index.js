@@ -11,6 +11,8 @@ import {
   EnvironmentOutlined,
   BellOutlined,
   EyeInvisibleOutlined,
+  UsergroupAddOutlined,
+  ControlFilled,
 } from '@ant-design/icons';
 import { useMutate } from 'restful-react';
 
@@ -87,6 +89,23 @@ const Header = () => {
             </span>
           }
         >
+          <Menu.Item
+            key={CLIENT_URLS.DASHBOARD.ADMINISTRATION.INDEX.buildPath()}
+          >
+            <ControlFilled />
+            <NavLink
+              to={CLIENT_URLS.DASHBOARD.ADMINISTRATION.INDEX.buildPath()}
+              I
+            >
+              {_('Administration')}
+            </NavLink>
+          </Menu.Item>
+          <Menu.Item key={CLIENT_URLS.DASHBOARD.CLUBS.INDEX.buildPath()}>
+            <UsergroupAddOutlined />
+            <NavLink to={CLIENT_URLS.DASHBOARD.CLUBS.INDEX.buildPath()}>
+              {_('My clubs')}
+            </NavLink>
+          </Menu.Item>
           <Menu.Item key={CLIENT_URLS.DASHBOARD.SETTINGS.INDEX.route}>
             <NavLink to={CLIENT_URLS.DASHBOARD.SETTINGS.INDEX.buildPath()}>
               <SettingOutlined /> {_('Settings')}

@@ -48,10 +48,10 @@ const NavMenu = () => {
           {_('News')} <Badge count={25} />
         </NavLink>
       </Menu.Item>
-      <Menu.Item key={CLIENT_URLS.DASHBOARD.MESSAGES.INDEX.route}>
+      <Menu.Item key={CLIENT_URLS.DASHBOARD.CHATS.INDEX.route}>
         <MessageOutlined />
-        <NavLink to={CLIENT_URLS.DASHBOARD.MESSAGES.INDEX.buildPath()}>
-          {_('Messages')} <Badge count={25} />
+        <NavLink to={CLIENT_URLS.DASHBOARD.CHATS.LIST.buildPath()}>
+          {_('Chats')} <Badge count={25} />
         </NavLink>
       </Menu.Item>
       <Menu.Item key={CLIENT_URLS.DASHBOARD.USERS.FRIENDS.buildPath()}>
@@ -81,17 +81,9 @@ const NavMenu = () => {
           {_('My blog')}
         </NavLink>
       </Menu.Item>
-      <Menu.Item
-        key={CLIENT_URLS.DASHBOARD.MEDIA.USER.buildPath({
-          userSlug: 'slug',
-        })}
-      >
+      <Menu.Item key={CLIENT_URLS.DASHBOARD.MEDIA.FOLDERS.buildPath()}>
         <PictureOutlined />
-        <NavLink
-          to={CLIENT_URLS.DASHBOARD.MEDIA.USER.buildPath({
-            userSlug: 'slug',
-          })}
-        >
+        <NavLink to={CLIENT_URLS.DASHBOARD.MEDIA.FOLDERS.buildPath()}>
           {_('My media')}
         </NavLink>
       </Menu.Item>

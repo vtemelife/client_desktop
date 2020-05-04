@@ -11,16 +11,7 @@ import styles from './index.module.scss';
 const Breadcrumbs = () => (
   <Switch>
     <Route
-      path={CLIENT_URLS.DASHBOARD.PROFILE.INDEX.route}
-      render={() => (
-        <Breadcrumb className={styles.Breadcrumb}>
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>List</Breadcrumb.Item>
-          <Breadcrumb.Item>App</Breadcrumb.Item>
-        </Breadcrumb>
-      )}
-    />
-    <Route
+      exact
       path={CLIENT_URLS.DASHBOARD.BLOGS.USER.route}
       render={() => (
         <Breadcrumb className={styles.Breadcrumb}>
@@ -43,24 +34,35 @@ const Breadcrumbs = () => (
       )}
     />
     <Route
-      path={CLIENT_URLS.DASHBOARD.MEDIA.USER.route}
+      exact
+      path={CLIENT_URLS.DASHBOARD.MEDIA.FOLDERS.route}
       render={() => (
         <Breadcrumb className={styles.Breadcrumb}>
           <Breadcrumb.Item>
-            <Link to={CLIENT_URLS.DASHBOARD.MEDIA.INDEX.buildPath()}>
+            <Link to={CLIENT_URLS.DASHBOARD.MEDIA.LIST.buildPath()}>
+              {_('Media Gallery')}
+            </Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item>{_('Folders')}</Breadcrumb.Item>
+        </Breadcrumb>
+      )}
+    />
+    <Route
+      exact
+      path={CLIENT_URLS.DASHBOARD.MEDIA.FOLDER_DETAIL.route}
+      render={() => (
+        <Breadcrumb className={styles.Breadcrumb}>
+          <Breadcrumb.Item>
+            <Link to={CLIENT_URLS.DASHBOARD.MEDIA.LIST.buildPath()}>
               {_('Media Gallery')}
             </Link>
           </Breadcrumb.Item>
           <Breadcrumb.Item>
-            {_('Author')}:{' '}
-            <Link
-              to={CLIENT_URLS.DASHBOARD.PROFILE.INDEX.buildPath({
-                userSlug: 'slug',
-              })}
-            >
-              test
+            <Link to={CLIENT_URLS.DASHBOARD.MEDIA.FOLDERS.buildPath()}>
+              {_('Media Folders')}
             </Link>
           </Breadcrumb.Item>
+          <Breadcrumb.Item>{_('Folder')}</Breadcrumb.Item>
         </Breadcrumb>
       )}
     />

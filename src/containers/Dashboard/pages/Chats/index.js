@@ -6,29 +6,23 @@ import CLIENT_URLS from 'routes/client';
 import NotFoundRoute from 'containers/Errors/NotFoundRoute';
 
 import List from './List';
-import Folders from './Folders';
 
-const MediaGallery = () => {
+const Chats = () => {
   return (
     <Switch>
       <Route
         exact
-        path={CLIENT_URLS.DASHBOARD.MEDIA.LIST.route}
+        path={CLIENT_URLS.DASHBOARD.CHATS.LIST.route}
         component={List}
       />
       <Route
         exact
-        path={CLIENT_URLS.DASHBOARD.MEDIA.DETAIL.route}
+        path={CLIENT_URLS.DASHBOARD.CHATS.GROUPS.route}
         component={List}
       />
       <Route
         exact
-        path={CLIENT_URLS.DASHBOARD.MEDIA.FOLDERS.route}
-        component={Folders}
-      />
-      <Route
-        exact
-        path={CLIENT_URLS.DASHBOARD.MEDIA.FOLDER_DETAIL.route}
+        path={CLIENT_URLS.DASHBOARD.CHATS.CONVERSATIONS.route}
         component={List}
       />
       <NotFoundRoute />
@@ -36,4 +30,4 @@ const MediaGallery = () => {
   );
 };
 
-export default MediaGallery;
+export default Chats;

@@ -42,6 +42,7 @@ const List = () => {
         <Content className={styles.SubContent}>
           <PageHeader
             title={_('Media Gallery')}
+            subTitle={_('Gallery')}
             extra={[
               <Link to={CLIENT_URLS.DASHBOARD.BLOGS.POST_CREATE.buildPath()}>
                 <Button key="ask" type="primary">

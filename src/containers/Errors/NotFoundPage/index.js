@@ -1,28 +1,37 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Layout, Row } from 'antd';
+import { Button, Result } from 'antd';
+import { useHistory } from 'react-router';
 
 import { _ } from 'utils/trans';
-import styles from './index.module.scss';
+import CLIENT_URLS from 'routes/client';
 
-const { Content } = Layout;
-
-const NotFoundPage = () => (
-  <Layout>
-    <Helmet>
-      <title>{_('404')}</title>
-      <meta name="description" content={_('404')} />
-    </Helmet>
-    <Content>
-      <Layout>
-        <Content>
-          <Row justify="center">
-            <h1 className={styles.title}>{_('Page Not Found')}</h1>
-          </Row>
-        </Content>
-      </Layout>
-    </Content>
-  </Layout>
-);
+const NotFoundPage = () => {
+  const history = useHistory();
+  return (
+    <>
+      <Helmet>
+        <title>{_('404')}</title>
+        <meta name="description" content={_('404')} />
+      </Helmet>
+      <Result
+        status="404"
+        title="404"
+        subTitle={_('Sorry, the page you visited does not exist.')}
+        extra={
+          <Button
+            type="primary"
+            onClick={() =>
+              history.push(CLIENT_URLS.DASHBOARD.INDEX.buildPath())
+            }
+          >
+            {_('Back Home')}
+          </Button>
+        }
+      />
+      >
+    </>
+  );
+};
 
 export default NotFoundPage;

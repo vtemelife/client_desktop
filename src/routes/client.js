@@ -19,13 +19,19 @@ const CLIENT_URLS = {
     NEWS: {
       INDEX: url('/news/'),
     },
-    MESSAGES: {
-      INDEX: url('/messages/'),
+    CHATS: {
+      INDEX: url('/chats/'),
+      LIST: url('/chats/all/'),
+      GROUPS: url('/chats/groups/'),
+      CONVERSATIONS: url('/chats/conversation/'),
+      DETAIL: url('/chats/:chatSlug/'),
     },
     USERS: {
       INDEX: url('/users/'),
       FRIENDS: url('/users/friends/'),
       SEARCH: url('/users/search/'),
+      REQUESTS_FROM_ME: url('/users/requests/from/me/'),
+      REQUESTS_FROM_USERS: url('/users/requests/from/users/'),
     },
     EVENTS: {
       INDEX: url('/events/'),
@@ -41,9 +47,10 @@ const CLIENT_URLS = {
     MEDIA: {
       INDEX: url('/media/'),
       LIST: url('/media/'),
-      USER: url('/media/user/:userSlug/'),
       CREATE: url('/media/create/'),
-      DETAIL: url('/media/detail/:mediaPk/'),
+      DETAIL: url('/media/detail/:mediaSlug/'),
+      FOLDERS: url('/media/folders/'),
+      FOLDER_DETAIL: url('/media/folders/:folderSlug/'),
     },
     WHISPER: {
       INDEX: url('/whisper/'),
@@ -64,6 +71,9 @@ const CLIENT_URLS = {
     },
     NOTIFICATIONS: {
       INDEX: url('/notifications/'),
+    },
+    ADMINISTRATION: {
+      INDEX: url('/admin/'),
     },
   },
 

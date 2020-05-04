@@ -21,3 +21,9 @@
 .Tags {
   margin: 10px 25px;
 }
+
+.StickyFilter {
+  position: -webkit-sticky !important; /* Safari */
+  position: sticky !important;
+  top: 0 !important;
+}

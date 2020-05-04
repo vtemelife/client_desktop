@@ -12,6 +12,7 @@ import Breadcrumbs from './components/Breadcrumbs';
 import Activity from './pages/Activity';
 import Profile from './pages/Profile';
 import Users from './pages/Users';
+import Chats from './pages/Chats';
 import Events from './pages/Events';
 import MediaGallery from './pages/MediaGallery';
 import Blogs from './pages/Blogs';
@@ -41,8 +42,8 @@ const Dashboard = () => (
               component={Activity}
             />
             <Route
-              path={CLIENT_URLS.DASHBOARD.MESSAGES.INDEX.route}
-              component={Activity}
+              path={CLIENT_URLS.DASHBOARD.CHATS.INDEX.route}
+              component={Chats}
             />
             <Route
               path={CLIENT_URLS.DASHBOARD.USERS.INDEX.route}
@@ -51,10 +52,6 @@ const Dashboard = () => (
             <Route
               path={CLIENT_URLS.DASHBOARD.EVENTS.INDEX.route}
               component={Events}
-            />
-            <Route
-              path={CLIENT_URLS.DASHBOARD.SETTINGS.INDEX.route}
-              component={Activity}
             />
             <Route
               path={CLIENT_URLS.DASHBOARD.WHISPER.INDEX.route}
@@ -69,11 +66,19 @@ const Dashboard = () => (
               component={MediaGallery}
             />
             <Route
+              path={CLIENT_URLS.DASHBOARD.NOTIFICATIONS.INDEX.route}
+              component={Activity}
+            />
+            <Route
               path={CLIENT_URLS.DASHBOARD.CLUBS.INDEX.route}
               component={Activity}
             />
             <Route
-              path={CLIENT_URLS.DASHBOARD.NOTIFICATIONS.INDEX.route}
+              path={CLIENT_URLS.DASHBOARD.ADMINISTRATION.INDEX.route}
+              component={Activity}
+            />
+            <Route
+              path={CLIENT_URLS.DASHBOARD.SETTINGS.INDEX.route}
               component={Activity}
             />
             <NotFoundRoute />

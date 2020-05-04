@@ -88,7 +88,7 @@ function monthCellRender(value) {
   ) : null;
 }
 
-const List = () => {
+const EventsCalendar = () => {
   function handleChange(value) {
     console.log(`selected ${value}`);
   }
@@ -110,8 +110,9 @@ const List = () => {
               </Button>
             </Link>,
           ]}
-        ></PageHeader>
+        />
         <Calendar
+          className={styles.Calendar}
           dateCellRender={dateCellRender}
           monthCellRender={monthCellRender}
         />
@@ -181,11 +182,17 @@ const List = () => {
               <AntdList.Item
                 key={item.title}
                 actions={[
-                  <Radio.Group defaultValue="a" size="small">
-                    <Radio.Button value="a">{_('Yes')}</Radio.Button>
-                    <Radio.Button value="b">{_('No')}</Radio.Button>
-                    <Radio.Button value="c">{_('May be')}</Radio.Button>
-                  </Radio.Group>,
+                  <Form>
+                    <Form.Item label={'Participation'} name="participation">
+                      <Radio.Group defaultValue="a" size="small" title="jjjj">
+                        <Radio.Button value="a">{_('Yes')}</Radio.Button>
+                        <Radio.Button value="b" checked>
+                          {_('No')}
+                        </Radio.Button>
+                        <Radio.Button value="c">{_('May be')}</Radio.Button>
+                      </Radio.Group>
+                    </Form.Item>
+                  </Form>,
                 ]}
                 extra={
                   <img
@@ -209,4 +216,4 @@ const List = () => {
   );
 };
 
-export default List;
+export default EventsCalendar;
