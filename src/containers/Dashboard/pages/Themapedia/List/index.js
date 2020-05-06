@@ -102,7 +102,7 @@ const List = () => {
           title={_('Themapedia')}
           subTitle={_('Our thematic wikipedia')}
           extra={[
-            <Link to={CLIENT_URLS.DASHBOARD.BLOGS.POST_CREATE.buildPath()}>
+            <Link to={CLIENT_URLS.DASHBOARD.THEMAPEDIA.POST_CREATE.buildPath()}>
               <Button key="ask" type="primary">
                 <PlusOutlined />
                 {_('Publish your article')}
@@ -140,14 +140,14 @@ const List = () => {
                   key="list-vertical-message"
                 />,
                 <Link
-                  to={CLIENT_URLS.DASHBOARD.BLOGS.POST_UPDATE.buildPath({
+                  to={CLIENT_URLS.DASHBOARD.THEMAPEDIA.POST_UPDATE.buildPath({
                     postSlug: 'slug',
                   })}
                 >
                   <IconText icon={EditOutlined} text="edit" />
                 </Link>,
                 <Link
-                  to={CLIENT_URLS.DASHBOARD.BLOGS.POST_DETAIL.buildPath({
+                  to={CLIENT_URLS.DASHBOARD.THEMAPEDIA.POST_DETAIL.buildPath({
                     postSlug: 'slug',
                   })}
                 >
@@ -167,7 +167,7 @@ const List = () => {
                 avatar={<Avatar size={60} icon={<UserOutlined />} />}
                 title={
                   <Link
-                    to={CLIENT_URLS.DASHBOARD.BLOGS.POST_DETAIL.buildPath({
+                    to={CLIENT_URLS.DASHBOARD.THEMAPEDIA.POST_DETAIL.buildPath({
                       postSlug: 'slug',
                     })}
                   >

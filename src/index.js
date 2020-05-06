@@ -6,6 +6,7 @@ import { Router } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import { RestfulProvider } from 'restful-react';
 import { HelmetProvider } from 'react-helmet-async';
+import { YMaps } from 'react-yandex-maps';
 import { _ } from 'utils/trans';
 import AuthUserProvider from 'containers/ContextProviders/AuthUserService';
 import App from 'containers/App';
@@ -14,10 +15,10 @@ import * as serviceWorker from './serviceWorker';
 
 import enUS from 'antd/es/locale/en_US';
 
-import 'styles/dark/colors.less';
-import 'styles/dark/colors.scss';
-// import 'styles/light/colors.less';
-// import 'styles/light/colors.scss';
+// import 'styles/dark/colors.less';
+// import 'styles/dark/colors.scss';
+import 'styles/light/colors.less';
+import 'styles/light/colors.scss';
 
 import 'styles/index.scss';
 
@@ -58,7 +59,9 @@ ReactDOM.render(
                 },
               }}
             >
-              <App />
+              <YMaps>
+                <App />
+              </YMaps>
             </ConfigProvider>
           </AuthUserProvider>
         </HelmetProvider>

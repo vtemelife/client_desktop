@@ -19,6 +19,7 @@ import MediaGallery from './pages/MediaGallery';
 import Themapedia from './pages/Themapedia';
 import Blogs from './pages/Blogs';
 import Whisper from './pages/Whisper';
+import Clubs from './pages/Clubs';
 
 import styles from './index.module.scss';
 
@@ -70,6 +71,10 @@ const Dashboard = () => (
             <Route
               path={CLIENT_URLS.DASHBOARD.MEDIA.INDEX.route}
               component={MediaGallery}
+            />
+            <Route
+              path={CLIENT_URLS.DASHBOARD.CLUBS.INDEX.route}
+              component={Clubs}
             />
             <Route
               path={CLIENT_URLS.DASHBOARD.NOTIFICATIONS.INDEX.route}

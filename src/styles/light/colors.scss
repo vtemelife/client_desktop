@@ -31,14 +31,39 @@ body.auth-body {
   }
 }
 
-.ant-layout-header {
+.ant-layout-header,
+.ant-menu-submenu-popup {
   background-color: $header-color !important;
   color: $border-color !important;
+
+  .ant-menu-item,
+  .ant-menu-submenu {
+    a,
+    span {
+      color: $background-color !important;
+    }
+  }
+  .ant-menu-item-selected {
+    background-color: $link-color !important;
+    a,
+    span {
+      color: $background-color !important;
+    }
+  }
 }
+
 .ant-menu-dark {
   background-color: $header-color !important;
   .ant-menu-sub {
     background-color: $header-color !important;
+  }
+}
+
+.ant-menu-item-selected {
+  background-color: $header-color !important;
+  a,
+  span {
+    color: $background-color !important;
   }
 }
 

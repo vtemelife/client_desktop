@@ -76,6 +76,8 @@ const CLIENT_URLS = {
     },
     CLUBS: {
       INDEX: url('/clubs/'),
+      MAP: url('/clubs/map/'),
+      MY: url('/clubs/my/'),
     },
     NOTIFICATIONS: {
       INDEX: url('/notifications/'),

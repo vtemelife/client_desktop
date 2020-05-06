@@ -81,9 +81,9 @@ const Header = () => {
             {_('Media gallery')}
           </NavLink>
         </Menu.Item>
-        <Menu.Item key={CLIENT_URLS.DASHBOARD.CLUBS.INDEX.route}>
+        <Menu.Item key={CLIENT_URLS.DASHBOARD.CLUBS.MAP.route}>
           <EnvironmentOutlined />
-          <NavLink to={CLIENT_URLS.DASHBOARD.CLUBS.INDEX.buildPath()}>
+          <NavLink to={CLIENT_URLS.DASHBOARD.CLUBS.MAP.buildPath()}>
             {_('Clubs')}
           </NavLink>
         </Menu.Item>
@@ -108,9 +108,9 @@ const Header = () => {
               {_('Administration')}
             </NavLink>
           </Menu.Item>
-          <Menu.Item key={CLIENT_URLS.DASHBOARD.CLUBS.INDEX.buildPath()}>
+          <Menu.Item key={CLIENT_URLS.DASHBOARD.CLUBS.MY.buildPath()}>
             <UsergroupAddOutlined />
-            <NavLink to={CLIENT_URLS.DASHBOARD.CLUBS.INDEX.buildPath()}>
+            <NavLink to={CLIENT_URLS.DASHBOARD.CLUBS.MY.buildPath()}>
               {_('My clubs')}
             </NavLink>
           </Menu.Item>
