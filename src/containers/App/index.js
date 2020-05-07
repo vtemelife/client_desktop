@@ -10,15 +10,18 @@ import Dashboard from 'containers/Dashboard';
 import NotFoundRoute from 'containers/Errors/NotFoundRoute';
 import ErrorHandler from 'containers/Errors/Handler';
 import { AuthUserContext } from 'containers/ContextProviders/AuthUserService';
+import { ThemeContext } from 'containers/ContextProviders/ThemeService';
 
 import { _ } from 'utils/trans';
 
 const App = () => {
   const authUserContext = useContext(AuthUserContext);
+  const themeContext = useContext(ThemeContext);
   return (
     <>
       <Helmet titleTemplate="%s - VTeme" defaultTitle={_('VTeme')}>
         <meta name="description" content={_('VTeme')} />
+        <html className={themeContext.theme} />
       </Helmet>
       <ErrorHandler>
         <Switch>

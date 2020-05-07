@@ -20,3 +20,7 @@ build:
 fix:
 	yarn run lint --fix
 	yarn run pretty-quick --branch develop
+
+themes:
+	lessc --include-path=node_modules --js src/styles/antd/light.less > src/styles/themes/antd-light.scss
+	lessc --include-path=node_modules --js src/styles/antd/dark.less > src/styles/themes/antd-dark.scss

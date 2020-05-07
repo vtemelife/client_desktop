@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useHistory, NavLink, useLocation } from 'react-router-dom';
-import { Layout, Menu, Badge } from 'antd';
+import { Layout, Menu, Badge, Switch } from 'antd';
 import {
   UserOutlined,
   SettingOutlined,
@@ -25,6 +25,7 @@ import styles from './index.module.scss';
 import { _ } from 'utils/trans';
 
 import { AuthUserContext } from 'containers/ContextProviders/AuthUserService';
+import { ThemeContext } from 'containers/ContextProviders/ThemeService';
 
 const { SubMenu } = Menu;
 
@@ -32,6 +33,7 @@ const Header = () => {
   const history = useHistory();
   const location = useLocation();
   const authUserContext = useContext(AuthUserContext);
+  const themeContext = useContext(ThemeContext);
   const authUser = authUserContext.authUser.data || {};
 
   const { mutate: signOut } = useMutate({
@@ -139,6 +141,14 @@ const Header = () => {
               <BellOutlined />
             </Badge>
           </NavLink>
+        </Menu.Item>
+        <Menu.Item className={styles.RightMenu} key="themeSwitcher">
+          <span>Dark mode</span>{' '}
+          <Switch
+            onChange={(checked) => {
+              themeContext.changeTheme(checked ? 'dark' : 'light');
+            }}
+          />
         </Menu.Item>
       </Menu>
     </Layout.Header>

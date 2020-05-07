@@ -9,16 +9,12 @@ import { HelmetProvider } from 'react-helmet-async';
 import { YMaps } from 'react-yandex-maps';
 import { _ } from 'utils/trans';
 import AuthUserProvider from 'containers/ContextProviders/AuthUserService';
+import ThemeProvider from 'containers/ContextProviders/ThemeService';
 import App from 'containers/App';
 import { getCookie } from 'utils/cookie';
 import * as serviceWorker from './serviceWorker';
 
 import enUS from 'antd/es/locale/en_US';
-
-// import 'styles/dark/colors.less';
-// import 'styles/dark/colors.scss';
-import 'styles/light/colors.less';
-import 'styles/light/colors.scss';
 
 import 'styles/index.scss';
 
@@ -39,30 +35,32 @@ ReactDOM.render(
       <RestfulProvider base="/" requestOptions={() => requestOptions()}>
         <HelmetProvider>
           <AuthUserProvider>
-            <ConfigProvider
-              locale={enUS}
-              componentSize="middle"
-              form={{
-                validateMessages: {
-                  // eslint-disable-next-line no-template-curly-in-string
-                  required: _('${label} is required!'),
-                  types: {
+            <ThemeProvider>
+              <ConfigProvider
+                locale={enUS}
+                componentSize="middle"
+                form={{
+                  validateMessages: {
                     // eslint-disable-next-line no-template-curly-in-string
-                    email: _('${label} is not validate email!'),
-                    // eslint-disable-next-line no-template-curly-in-string
-                    number: _('${label} is not a validate number!'),
+                    required: _('${label} is required!'),
+                    types: {
+                      // eslint-disable-next-line no-template-curly-in-string
+                      email: _('${label} is not validate email!'),
+                      // eslint-disable-next-line no-template-curly-in-string
+                      number: _('${label} is not a validate number!'),
+                    },
+                    number: {
+                      // eslint-disable-next-line no-template-curly-in-string
+                      range: _('${label} must be between ${min} and ${max}'),
+                    },
                   },
-                  number: {
-                    // eslint-disable-next-line no-template-curly-in-string
-                    range: _('${label} must be between ${min} and ${max}'),
-                  },
-                },
-              }}
-            >
-              <YMaps>
-                <App />
-              </YMaps>
-            </ConfigProvider>
+                }}
+              >
+                <YMaps>
+                  <App />
+                </YMaps>
+              </ConfigProvider>
+            </ThemeProvider>
           </AuthUserProvider>
         </HelmetProvider>
       </RestfulProvider>
